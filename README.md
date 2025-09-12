@@ -1,7 +1,5 @@
 # 2025_LTTBDD_N04_Nhom_HanhNguyenDang
 
-# 2025_LTTBDD_N04_Nhom_HanhNguyenDang
-
 Ứng dụng TodoList giúp người dùng:
 
     -Tạo, chỉnh sửa, xóa và đánh dấu công việc đã hoàn thành.
@@ -23,9 +21,13 @@ Công nghệ sử dụng:
 
 Cấu trúc thư mục chính (Flutter):
     /lib
+    
   ├── main.dart          # Điểm bắt đầu của ứng dụng
+  
   ├── models/            # Định nghĩa class Todo
+  
   ├── screens/           # Các màn hình (Home, AddTask, EditTask...)
+  
   ├── widgets/           # Các widget tái sử dụng
 
 Các chức năng chính:
