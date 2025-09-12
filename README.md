@@ -1,7 +1,5 @@
 # 2025_LTTBDD_N04_Nhom_HanhNguyenDang
 
-# 2025_LTTBDD_N04_Nhom_HanhNguyenDang
-
 Ứng dụng TodoList giúp người dùng:
 
     -Tạo, chỉnh sửa, xóa và đánh dấu công việc đã hoàn thành.
