@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart'; //goi cung cap widget để xây dựng thư viện
+import '../widgets/todo_tile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,6 +14,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.blue[200],
       appBar: AppBar(title: Center(child: Text('TO DO')), elevation: 0),
+      body: ListView(children: [ToDoTile()]),
     );
   }
 }
