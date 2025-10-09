@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart'; //goi cung cap widget để xây dựng thư viện
+import 'package:hive_flutter/hive_flutter.dart';
 import 'screens/home_page.dart';
 
-void main() {
+void main() async {
+  //init the hive
+  await Hive.initFlutter();
+
+  //open a box
+  var box = await Hive.box('mybox');
+
   runApp(const MyApp());
 }
 
@@ -15,7 +22,9 @@ class MyApp extends StatelessWidget {
       home: HomePage(),
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        appBarTheme: AppBarTheme(backgroundColor: Colors.blue),
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.blue,
+        ),
       ),
     );
   }
