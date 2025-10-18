@@ -22,6 +22,8 @@ Công nghệ sử dụng:
 Cấu trúc thư mục chính (Flutter):
     /lib
     
+  ├── data/              # Hive local storage - Hive database.     
+    
   ├── main.dart          # Điểm bắt đầu của ứng dụng
   
   ├── models/            # Định nghĩa class Todo
@@ -45,7 +47,7 @@ Các chức năng chính:
 
 Hướng phát triển tương lai
 
-    -Thêm chức năng nhắc nhở (notification).
+    -Thêm chức năng hẹn thời gian và nhắc nhở làm việc (notification).
 
     -Đồng bộ hóa dữ liệu với cloud.
 
