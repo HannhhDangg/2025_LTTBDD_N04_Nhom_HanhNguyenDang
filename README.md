@@ -21,7 +21,9 @@ Công nghệ sử dụng:
 
 Cấu trúc thư mục chính (Flutter):
     /lib
-    
+
+  ├── l10n/              # Cài đặt ngôn ngữ en và vi cho app.     
+  
   ├── data/              # Hive local storage - Hive database.     
     
   ├── main.dart          # Điểm bắt đầu của ứng dụng
