@@ -1,0 +1,13 @@
+{
+  "@@locale": "en",
+  "appTitle": "Todo App",
+  "homeTitle": "TASKS",
+  "infoTitle": "GROUP INFO",
+  "emptyList": "No tasks yet, start planning your day!",
+  "tabHome": "Home",
+  "tabInfo": "Team Info",
+  "addTaskTitle": "Add New Task",
+  "addTaskHint": "Enter a task...",
+  "cancel": "Cancel",
+  "save": "Save"
+}

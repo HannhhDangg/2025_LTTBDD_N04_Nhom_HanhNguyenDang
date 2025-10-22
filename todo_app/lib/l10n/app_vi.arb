@@ -1,0 +1,13 @@
+{
+    "@@locale": "vi",
+    "appTitle": "Ứng dụng ghi chú",
+    "homeTitle": "NHIỆM VỤ",
+    "infoTitle": "THÔNG TIN NHÓM",
+    "emptyList": "Chưa có công việc nào, lên lịch hôm nay thôi nào!",
+    "tabHome": "Trang chủ",
+    "tabInfo": "Thông tin nhóm",
+    "addTaskTitle": "Thêm nhiệm vụ mới",
+    "addTaskHint": "Thêm nhiệm vụ...",
+    "cancel": "Huỷ",
+    "save": "Lưu"
+}

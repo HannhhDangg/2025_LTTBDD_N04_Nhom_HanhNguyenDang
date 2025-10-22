@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/l10n/app_localizations.dart';
 import 'package:todo_app/widgets/button_save.dart';
 
 class DialogBox extends StatelessWidget {
@@ -15,15 +16,17 @@ class DialogBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
+
     return AlertDialog(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
       ),
       backgroundColor: Colors.white,
       elevation: 8,
-      title: const Text(
-        "Thêm nhiệm vụ mới",
-        style: TextStyle(
+      title: Text(
+        local.addTaskTitle, // lấy text đa ngôn ngữ
+        style: const TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 20,
           color: Colors.blueAccent,
@@ -38,7 +41,8 @@ class DialogBox extends StatelessWidget {
               controller: controller,
               autofocus: true,
               decoration: InputDecoration(
-                hintText: "Thêm nhiệm vụ...",
+                hintText: local
+                    .addTaskHint, //placeholder theo ngôn ngữ
                 filled: true,
                 fillColor: const Color(0xFFF5F7FA),
                 contentPadding: const EdgeInsets.symmetric(
@@ -71,9 +75,9 @@ class DialogBox extends StatelessWidget {
                       vertical: 10,
                     ),
                   ),
-                  child: const Text(
-                    "Huỷ",
-                    style: TextStyle(fontSize: 16),
+                  child: Text(
+                    local.cancel, //từ vựng đa ngôn ngữ
+                    style: const TextStyle(fontSize: 16),
                   ),
                 ),
                 const SizedBox(width: 8),
@@ -93,9 +97,9 @@ class DialogBox extends StatelessWidget {
                       vertical: 12,
                     ),
                   ),
-                  child: const Text(
-                    "Lưu",
-                    style: TextStyle(fontSize: 16),
+                  child: Text(
+                    local.save, //từ vựng đa ngôn ngữ
+                    style: const TextStyle(fontSize: 16),
                   ),
                 ),
               ],

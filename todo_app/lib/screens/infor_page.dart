@@ -12,7 +12,7 @@ class InforPage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            // 🌤 AppBar nổi nhẹ — giống bên trang Nhiệm vụ
+            // AppBar nổi nhẹ — giống bên trang Nhiệm vụ
             Container(
               margin: const EdgeInsets.symmetric(
                 horizontal: 12,
@@ -46,7 +46,7 @@ class InforPage extends StatelessWidget {
               ),
             ),
 
-            // 🌈 Nội dung
+            // Nội dung
             Expanded(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.all(24.0),

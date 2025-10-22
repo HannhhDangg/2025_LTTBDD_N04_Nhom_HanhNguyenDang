@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/main.dart';
+import 'package:todo_app/l10n/app_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:todo_app/data/database.dart';
 import 'package:todo_app/widgets/dialog_box.dart';
@@ -95,13 +97,143 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
+
     final List<Widget> pages = [
-      //Trang chính (Danh sách nhiệm vụ)
+      //Trang chính
       Scaffold(
         backgroundColor: const Color(0xFFE3F2FD),
         body: SafeArea(
           child: Column(
             children: [
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 8,
+                  right: 16,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    //English Flag
+                    GestureDetector(
+                      onTap: () => MyApp.setLocale(
+                        context,
+                        const Locale('en'),
+                      ),
+                      child: AnimatedContainer(
+                        duration: const Duration(
+                          milliseconds: 250,
+                        ),
+                        padding: const EdgeInsets.all(4),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border:
+                              Localizations.localeOf(
+                                    context,
+                                  ).languageCode ==
+                                  'en'
+                              ? Border.all(
+                                  color: Colors.blueAccent,
+                                  width: 2.5,
+                                )
+                              : null,
+                          boxShadow:
+                              Localizations.localeOf(
+                                    context,
+                                  ).languageCode ==
+                                  'en'
+                              ? [
+                                  BoxShadow(
+                                    color: Colors.blueAccent
+                                        .withOpacity(0.4),
+                                    blurRadius: 10,
+                                    spreadRadius: 2,
+                                  ),
+                                ]
+                              : [],
+                        ),
+                        child: Image.asset(
+                          'imgs/en.png',
+                          width:
+                              Localizations.localeOf(
+                                    context,
+                                  ).languageCode ==
+                                  'en'
+                              ? 38
+                              : 32,
+                          height:
+                              Localizations.localeOf(
+                                    context,
+                                  ).languageCode ==
+                                  'en'
+                              ? 38
+                              : 32,
+                        ),
+                      ),
+                    ),
+
+                    const SizedBox(width: 14),
+
+                    // Vietnamese Flag
+                    GestureDetector(
+                      onTap: () => MyApp.setLocale(
+                        context,
+                        const Locale('vi'),
+                      ),
+                      child: AnimatedContainer(
+                        duration: const Duration(
+                          milliseconds: 250,
+                        ),
+                        padding: const EdgeInsets.all(4),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border:
+                              Localizations.localeOf(
+                                    context,
+                                  ).languageCode ==
+                                  'vi'
+                              ? Border.all(
+                                  color: Colors.blueAccent,
+                                  width: 2.5,
+                                )
+                              : null,
+                          boxShadow:
+                              Localizations.localeOf(
+                                    context,
+                                  ).languageCode ==
+                                  'vi'
+                              ? [
+                                  BoxShadow(
+                                    color: Colors.blueAccent
+                                        .withOpacity(0.4),
+                                    blurRadius: 10,
+                                    spreadRadius: 2,
+                                  ),
+                                ]
+                              : [],
+                        ),
+                        child: Image.asset(
+                          'imgs/vn.png',
+                          width:
+                              Localizations.localeOf(
+                                    context,
+                                  ).languageCode ==
+                                  'vi'
+                              ? 38
+                              : 32,
+                          height:
+                              Localizations.localeOf(
+                                    context,
+                                  ).languageCode ==
+                                  'vi'
+                              ? 38
+                              : 32,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               // Tiêu đề
               Container(
                 margin: const EdgeInsets.symmetric(
@@ -123,10 +255,10 @@ class _HomePageState extends State<HomePage> {
                   horizontal: 16,
                   vertical: 14,
                 ),
-                child: const Center(
+                child: Center(
                   child: Text(
-                    "NHIỆM VỤ",
-                    style: TextStyle(
+                    local.homeTitle,
+                    style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
@@ -145,10 +277,10 @@ class _HomePageState extends State<HomePage> {
                         CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 10),
-                      const Center(
+                      Center(
                         child: Text(
-                          "Danh sách công việc của bạn",
-                          style: TextStyle(
+                          local.tabHome,
+                          style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: Colors.black87,
@@ -160,10 +292,10 @@ class _HomePageState extends State<HomePage> {
                       // Danh sách nhiệm vụ
                       Expanded(
                         child: db.toDoList.isEmpty
-                            ? const Center(
+                            ? Center(
                                 child: Text(
-                                  "Chưa có công việc nào, lên lịch hôm nay thôi nào!",
-                                  style: TextStyle(
+                                  local.emptyList,
+                                  style: const TextStyle(
                                     fontSize: 16,
                                     color: Colors.black54,
                                   ),
@@ -221,16 +353,15 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
 
-      // Trang thông tin
       const InforPage(),
     ];
 
+    //  bottom navigation
     return Scaffold(
       extendBody: true,
       backgroundColor: const Color(0xFFE3F2FD),
       body: pages[_selectedIndex],
 
-      // Thanh điều hướng dưới
       bottomNavigationBar: Container(
         margin: const EdgeInsets.fromLTRB(16, 0, 16, 12),
         decoration: BoxDecoration(
@@ -257,14 +388,14 @@ class _HomePageState extends State<HomePage> {
                 _selectedIndex = index;
               });
             },
-            items: const [
+            items: [
               BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Trang chủ',
+                icon: const Icon(Icons.home),
+                label: local.tabHome,
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: 'Thông tin nhóm',
+                icon: const Icon(Icons.person),
+                label: local.tabInfo,
               ),
             ],
           ),
